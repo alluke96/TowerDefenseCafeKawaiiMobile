@@ -8,10 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MenuScene.unity
     guid: 1d84e150cb8ffd0438218a9650f6f1a6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GameScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/EndScene.unity
     guid: 471e0078c6dce4540bd0bce8cbb580fa
+  - enabled: 1
+    path: Assets/Scenes/PlantsVsZombiesScene.unity
+    guid: 55a09da5b0ed95345aa72d6ad4e3e729
   m_configObjects: {}
