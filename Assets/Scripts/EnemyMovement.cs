@@ -7,11 +7,17 @@ public class EnemyMovement : MonoBehaviour
     // Serialized fields
     //----------------------------------------------------------------------------------------------------------------
     [SerializeField] private float speed = 10f;
-    [SerializeField] private GameObject _listOfWaypointObjects;
+    [SerializeField] private  GameObject _listOfWaypointObjects;
     
     //-----------------------------------------------------------------------------------------------------------------
     // Non-serializable fields
     //-----------------------------------------------------------------------------------------------------------------
+    public GameObject ListOfWaypointObjects
+    {
+        get => _listOfWaypointObjects;
+        set => _listOfWaypointObjects = value;
+    }
+
     private Transform _target;
     private int _wavePointIndex = 0;
     private CreateWaypointsList _waypointList;
