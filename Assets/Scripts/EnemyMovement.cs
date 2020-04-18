@@ -46,7 +46,7 @@ public class EnemyMovement : MonoBehaviour
     //----------------------------------------------------------------------------------------------------------------
     private void GetNextWaypoint()
     {
-        if (_wavePointIndex >= _waypointList.listOfWaypointObjects.Length - 1)
+        if (_wavePointIndex > _waypointList.listOfWaypointObjects.Length)
         {
             Destroy(gameObject);
         }
