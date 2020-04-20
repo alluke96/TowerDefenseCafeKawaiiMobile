@@ -55,7 +55,7 @@ public class WaveSpawner : MonoBehaviour
         int randomEnemy = Random.Range(0, _enemyPrefab.Length);
         Transform enemy = Instantiate(_enemyPrefab[randomEnemy], _spawnPoint[randomRow].position, Quaternion.Euler(90,0,0), _spawnPoint[randomRow].parent.parent);
         Transform waypointsList = _spawnPoint[randomRow].transform.parent.gameObject.transform.parent.gameObject.transform.Find("WaypointsList");
-        EnemyMovement enemyMovement = enemy.GetComponent<EnemyMovement>();
-        enemyMovement.ListOfWaypointObjects = waypointsList.gameObject;
+        EnemyController enemyController = enemy.GetComponent<EnemyController>();
+        enemyController.ListOfWaypointObjects = waypointsList.gameObject;
     }
 }

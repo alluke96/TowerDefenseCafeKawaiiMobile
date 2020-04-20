@@ -5,7 +5,8 @@ public class BulletController : MonoBehaviour
     //----------------------------------------------------------------------------------------------------------------
     // Serialized fields
     //----------------------------------------------------------------------------------------------------------------
-    [SerializeField] private float speed = 70f;
+    [SerializeField] private float _speed = 70f;
+    [SerializeField] private int _damage = 25;
     [SerializeField] private GameObject _particlesBulletImpact;
     
     //----------------------------------------------------------------------------------------------------------------
@@ -25,7 +26,7 @@ public class BulletController : MonoBehaviour
         }
 
         Vector3 direction = _target.position - transform.position;
-        float distanceThisFrame = speed * Time.deltaTime;
+        float distanceThisFrame = _speed * Time.deltaTime;
 
         if (direction.magnitude <= distanceThisFrame)
         {
@@ -42,9 +43,22 @@ public class BulletController : MonoBehaviour
     {
         Debug.Log("Hit something");
         GameObject effectInstance = Instantiate(_particlesBulletImpact, transform.position, transform.rotation);
+        
+        Damage(_target);
+        
         Destroy(effectInstance, 2f); // Clean Hierarchy
         Destroy(gameObject); // Destroy bullet
     }
+
+    private void Damage(Transform enemy)
+    {
+        EnemyController e = enemy.GetComponent<EnemyController>();
+        if (e != null)
+        {
+            e.TakeDamage(_damage);
+        }
+    }
+    
     //----------------------------------------------------------------------------------------------------------------
     // Public methods
     //----------------------------------------------------------------------------------------------------------------
