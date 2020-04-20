@@ -8,9 +8,10 @@ public class BuildManager : MonoBehaviour
     public static BuildManager instance;
     
     //----------------------------------------------------------------------------------------------------------------
-    // Serialized fields
+    // No-serialized fields
     //----------------------------------------------------------------------------------------------------------------
-    [SerializeField] private GameObject _standartTurretPrefab;
+    public GameObject standartTurretPrefab;
+    public GameObject bombTurretPrefab;
     
     //----------------------------------------------------------------------------------------------------------------
     // Non-serialized fields
@@ -32,7 +33,7 @@ public class BuildManager : MonoBehaviour
 
     private void Start()
     {
-        _turretToBuild = _standartTurretPrefab;
+        //_turretToBuild = _standartTurretPrefab;
     }
 
     //----------------------------------------------------------------------------------------------------------------
@@ -41,5 +42,10 @@ public class BuildManager : MonoBehaviour
     public GameObject GetTurretToBuild()
     {
         return _turretToBuild;
+    }
+
+    public void SetTurretToBuild(GameObject turret)
+    {
+        _turretToBuild = turret;
     }
 }

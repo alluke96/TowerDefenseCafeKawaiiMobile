@@ -32,6 +32,7 @@ public class EnemyController : MonoBehaviour
     //----------------------------------------------------------------------------------------------------------------
     private void Start()
     {
+        _health = _startHealth;
         _speed = _startSpeed;
         _waypointList = _listOfWaypointObjects.GetComponent<CreateWaypointsList>();
         _target = _waypointList.listOfWaypointObjects[0];
@@ -71,10 +72,11 @@ public class EnemyController : MonoBehaviour
     //----------------------------------------------------------------------------------------------------------------
     public void TakeDamage(float amount)
     {
+        
         _health -= amount;
 
         _healthBar.fillAmount = _health / _startHealth; // No matter how much life the enemy has, it always shows correctly
-
+        
         if (_health <= 0)
         {
             Die();

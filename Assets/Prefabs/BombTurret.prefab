@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5860854859595938480}
   - component: {fileID: 6625989839585545263}
   m_Layer: 0
-  m_Name: StandartTurret
+  m_Name: BombTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -104,7 +104,7 @@ SpriteMask:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 83ed31cc740cb3a4f8af1bfa53fb4fae, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2851febf843802c40b9905f3a4d7f0c4, type: 3}
   m_MaskAlphaCutoff: 0
   m_FrontSortingLayerID: 0
   m_BackSortingLayerID: 0
@@ -153,7 +153,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 83ed31cc740cb3a4f8af1bfa53fb4fae, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2851febf843802c40b9905f3a4d7f0c4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -12,8 +12,9 @@ public class NodeInterations : MonoBehaviour
     // Non-serialized fields
     //----------------------------------------------------------------------------------------------------------------
     private Renderer _renderer;
-    private Color _startColor;
     private GameObject _turret;
+
+    private BuildManager _buildManager;
 
     //----------------------------------------------------------------------------------------------------------------
     // Unity events
@@ -21,7 +22,7 @@ public class NodeInterations : MonoBehaviour
     private void Start()
     {
         _renderer = GetComponent<Renderer>();
-        _startColor = _renderer.material.color;
+        _buildManager = BuildManager.instance;
     }
 
     private void OnMouseDown()
@@ -33,17 +34,19 @@ public class NodeInterations : MonoBehaviour
         }
         
         //Build a turret
-        GameObject turretToBuild = BuildManager.instance.GetTurretToBuild();
-        Instantiate(turretToBuild, transform.position + _positionOffset, Quaternion.Euler(90,0,0), transform.parent);
+        GameObject turretToBuild = _buildManager.GetTurretToBuild();
+        _turret = Instantiate(turretToBuild, transform.position + _positionOffset, Quaternion.Euler(90,0,0), transform.parent);
     }
 
     private void OnMouseEnter()
     {
-       _renderer.material.color = _hoverColor;
+        if (_buildManager.GetTurretToBuild() == null)
+            return;
+        _renderer.enabled = true;
     }
     
     private void OnMouseExit()
     {
-        _renderer.material.color = _startColor;
+        _renderer.enabled = false;
     }
 }

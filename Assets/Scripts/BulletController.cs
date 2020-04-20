@@ -41,7 +41,7 @@ public class BulletController : MonoBehaviour
     //----------------------------------------------------------------------------------------------------------------
     private void HitTarget()
     {
-        Debug.Log("Hit something");
+        //Debug.Log("Hit something");
         GameObject effectInstance = Instantiate(_particlesBulletImpact, transform.position, transform.rotation);
         
         Damage(_target);
