@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
@@ -7,6 +6,7 @@ public class BulletController : MonoBehaviour
     // Serialized fields
     //----------------------------------------------------------------------------------------------------------------
     [SerializeField] private float speed = 70f;
+    [SerializeField] private GameObject _particlesBulletImpact;
     
     //----------------------------------------------------------------------------------------------------------------
     // Non-serialized fields
@@ -34,13 +34,16 @@ public class BulletController : MonoBehaviour
         }
         transform.Translate(direction.normalized * distanceThisFrame, Space.World);
     }
-    
+
     //----------------------------------------------------------------------------------------------------------------
     // Private methods
     //----------------------------------------------------------------------------------------------------------------
     private void HitTarget()
     {
         Debug.Log("Hit something");
+        GameObject effectInstance = Instantiate(_particlesBulletImpact, transform.position, transform.rotation);
+        Destroy(effectInstance, 2f); // Clean Hierarchy
+        Destroy(gameObject); // Destroy bullet
     }
     //----------------------------------------------------------------------------------------------------------------
     // Public methods

@@ -1,13 +1,12 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Node : MonoBehaviour
+public class NodeInterations : MonoBehaviour
 {
     //----------------------------------------------------------------------------------------------------------------
     // Serialized fields
     //----------------------------------------------------------------------------------------------------------------
     [SerializeField] private Color _hoverColor;
-    [SerializeField] private Vector3 offset;
+    [SerializeField] private Vector3 _positionOffset;
 
     //----------------------------------------------------------------------------------------------------------------
     // Non-serialized fields
@@ -35,7 +34,7 @@ public class Node : MonoBehaviour
         
         //Build a turret
         GameObject turretToBuild = BuildManager.instance.GetTurretToBuild();
-        Instantiate(turretToBuild, transform.position + offset, transform.rotation, transform.parent);
+        Instantiate(turretToBuild, transform.position + _positionOffset, Quaternion.Euler(90,0,0), transform.parent);
     }
 
     private void OnMouseEnter()

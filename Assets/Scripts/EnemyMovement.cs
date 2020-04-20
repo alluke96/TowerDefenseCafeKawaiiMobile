@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -41,6 +40,7 @@ public class EnemyMovement : MonoBehaviour
             GetNextWaypoint();
         }
     }
+
     //----------------------------------------------------------------------------------------------------------------
     // Private methods
     //----------------------------------------------------------------------------------------------------------------

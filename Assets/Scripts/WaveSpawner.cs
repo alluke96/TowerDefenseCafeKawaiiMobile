@@ -6,9 +6,11 @@ public class WaveSpawner : MonoBehaviour
     //----------------------------------------------------------------------------------------------------------------
     // Serialized fields
     //----------------------------------------------------------------------------------------------------------------
+    [Header("Settings")]
+    [SerializeField] private float _timeBetweenWaves = 5f;
+    [Header("Dependencies")] 
     [SerializeField] private Transform[] _enemyPrefab;
     [SerializeField] private Transform[] _spawnPoint;
-    [SerializeField] private float _timeBetweenWaves = 5f;
 
     //----------------------------------------------------------------------------------------------------------------
     // Non-serialized fields
@@ -51,7 +53,7 @@ public class WaveSpawner : MonoBehaviour
     {
         int randomRow = Random.Range(0, _spawnPoint.Length);
         int randomEnemy = Random.Range(0, _enemyPrefab.Length);
-        Transform enemy = Instantiate(_enemyPrefab[randomEnemy], _spawnPoint[randomRow].position, _spawnPoint[randomRow].rotation, _spawnPoint[randomRow].parent.parent);
+        Transform enemy = Instantiate(_enemyPrefab[randomEnemy], _spawnPoint[randomRow].position, Quaternion.Euler(90,0,0), _spawnPoint[randomRow].parent.parent);
         Transform waypointsList = _spawnPoint[randomRow].transform.parent.gameObject.transform.parent.gameObject.transform.Find("WaypointsList");
         EnemyMovement enemyMovement = enemy.GetComponent<EnemyMovement>();
         enemyMovement.ListOfWaypointObjects = waypointsList.gameObject;

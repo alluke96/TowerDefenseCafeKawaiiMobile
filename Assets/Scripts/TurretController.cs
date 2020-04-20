@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class TurretController : MonoBehaviour
 {
@@ -7,9 +6,8 @@ public class TurretController : MonoBehaviour
     // Serialized fields
     //----------------------------------------------------------------------------------------------------------------
     [Header("Attributes")]
-    [SerializeField] private float _shootingRange = 15f;
+    [SerializeField] private float _shootingRange = 999f;
     [SerializeField] private float _fireRate = 1f;
-
     [Header("Dependencies")] 
     [SerializeField] private GameObject _bulletPrefab;
     [SerializeField] private Transform _firePoint;
