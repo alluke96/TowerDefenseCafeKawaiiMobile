@@ -1,8 +1,13 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Shop : MonoBehaviour
 {
+   //----------------------------------------------------------------------------------------------------------------
+   // Serialized fields
+   //----------------------------------------------------------------------------------------------------------------
+   [SerializeField] private TurretBlueprint standartTurret;
+   [SerializeField] private TurretBlueprint bombTurret;
+   
    //----------------------------------------------------------------------------------------------------------------
    // Non-serialized fields
    //----------------------------------------------------------------------------------------------------------------
@@ -19,15 +24,15 @@ public class Shop : MonoBehaviour
    //----------------------------------------------------------------------------------------------------------------
    // Public methods
    //----------------------------------------------------------------------------------------------------------------
-   public void PurchaseStandartTurret()
+   public void SelectStandartTurret()
    {
-      Debug.Log("Bought standart turret");
-      _buildManager.SetTurretToBuild(_buildManager.standartTurretPrefab);
+      //Debug.Log("Bought standart turret");
+      _buildManager.SetTurretToBuild(standartTurret);
    }
    
-   public void PurchaseAnotherTurret()
+   public void SelectBombTurret()
    {
-      Debug.Log("Bought bomb turret");
-      _buildManager.SetTurretToBuild(_buildManager.bombTurretPrefab);
+      //Debug.Log("Bought bomb turret");
+      _buildManager.SetTurretToBuild(bombTurret);
    }
 }
