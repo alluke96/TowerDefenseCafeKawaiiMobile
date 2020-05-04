@@ -10,8 +10,8 @@ public class BuildManager : MonoBehaviour
     //----------------------------------------------------------------------------------------------------------------
     // No-serialized fields
     //----------------------------------------------------------------------------------------------------------------
-    public GameObject standartTurretPrefab;
-    public GameObject bombTurretPrefab;
+//    public GameObject standartTurretPrefab;
+//    public GameObject bombTurretPrefab;
     
     //----------------------------------------------------------------------------------------------------------------
     // Non-serialized fields

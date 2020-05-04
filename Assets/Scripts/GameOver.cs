@@ -1,28 +1,32 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class PlayerStats : MonoBehaviour
+public class GameOver : MonoBehaviour
 {
     //----------------------------------------------------------------------------------------------------------------
     // Serialized fields
     //----------------------------------------------------------------------------------------------------------------
-    [SerializeField] private int _startMoney = 400;
+    [SerializeField] private Text _roundsText;
 
-    //----------------------------------------------------------------------------------------------------------------
-    // Non-serialized fields
-    //----------------------------------------------------------------------------------------------------------------
-    public static int Money;
-    public static int Lives = 5;
-    public static int Rounds;
-    
     //----------------------------------------------------------------------------------------------------------------
     // Unity events
     //----------------------------------------------------------------------------------------------------------------
-    private void Start()
+    private void OnEnable()
     {
-        Money = _startMoney;
-        Rounds = 0;
+        _roundsText.text = PlayerStats.Rounds.ToString();
+    }
+
+    //----------------------------------------------------------------------------------------------------------------
+    // Public methods
+    //----------------------------------------------------------------------------------------------------------------
+    public void Retry()
+    {
+        SceneManager.LoadScene("GameScene");
+    }
+
+    public void Menu()
+    {
+        SceneManager.LoadScene("MenuScene");
     }
 }

@@ -1,28 +1,40 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class PlayerStats : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     //----------------------------------------------------------------------------------------------------------------
     // Serialized fields
     //----------------------------------------------------------------------------------------------------------------
-    [SerializeField] private int _startMoney = 400;
-
+    [SerializeField] private GameObject _gameOverUI;
+    
     //----------------------------------------------------------------------------------------------------------------
     // Non-serialized fields
     //----------------------------------------------------------------------------------------------------------------
-    public static int Money;
-    public static int Lives = 5;
-    public static int Rounds;
-    
-    //----------------------------------------------------------------------------------------------------------------
-    // Unity events
-    //----------------------------------------------------------------------------------------------------------------
+    public static bool GameIsOver = false;
+
     private void Start()
     {
-        Money = _startMoney;
-        Rounds = 0;
+        // fix static issue when changing scenes
+        GameIsOver = false;
+    }
+
+    //----------------------------------------------------------------------------------------------------------------
+    // Private methods
+    //----------------------------------------------------------------------------------------------------------------
+    private void Update()
+    {
+        if (GameIsOver)
+            return;
+
+        if (PlayerStats.Lives <= 0)
+        {
+            EndGame();
+        }
+    }
+
+    private void EndGame()
+    {
+        GameIsOver = true;
+        _gameOverUI.SetActive(true);
     }
 }

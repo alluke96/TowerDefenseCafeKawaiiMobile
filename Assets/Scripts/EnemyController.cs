@@ -55,6 +55,8 @@ public class EnemyController : MonoBehaviour
     {
         if (_wavePointIndex > _waypointList.listOfWaypointObjects.Length)
         {
+            PlayerStats.Lives--;
+            Debug.Log(PlayerStats.Lives);
             Destroy(gameObject);
         }
         _wavePointIndex++;

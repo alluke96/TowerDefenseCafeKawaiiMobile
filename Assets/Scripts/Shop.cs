@@ -1,12 +1,16 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
 {
    //----------------------------------------------------------------------------------------------------------------
    // Serialized fields
    //----------------------------------------------------------------------------------------------------------------
-   [SerializeField] private TurretBlueprint standartTurret;
-   [SerializeField] private TurretBlueprint bombTurret;
+   [SerializeField] private TurretBlueprint _standartTurret;
+   [SerializeField] private TurretBlueprint _bombTurret;   
+   [SerializeField] private TurretBlueprint _sugarTurret;
+
+   [SerializeField] private Text _sugarText;
    
    //----------------------------------------------------------------------------------------------------------------
    // Non-serialized fields
@@ -21,18 +25,26 @@ public class Shop : MonoBehaviour
       _buildManager = BuildManager.instance;
    }
 
+   private void Update()
+   {
+      _sugarText.text = "" + PlayerStats.Money;
+   }
+
    //----------------------------------------------------------------------------------------------------------------
    // Public methods
    //----------------------------------------------------------------------------------------------------------------
    public void SelectStandartTurret()
    {
-      //Debug.Log("Bought standart turret");
-      _buildManager.SetTurretToBuild(standartTurret);
+      _buildManager.SetTurretToBuild(_standartTurret);
    }
    
    public void SelectBombTurret()
    {
-      //Debug.Log("Bought bomb turret");
-      _buildManager.SetTurretToBuild(bombTurret);
+      _buildManager.SetTurretToBuild(_bombTurret);
+   }
+   
+   public void SelectSugarTurret()
+   {
+      _buildManager.SetTurretToBuild(_sugarTurret);
    }
 }

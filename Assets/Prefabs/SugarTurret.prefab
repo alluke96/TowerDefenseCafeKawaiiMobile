@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5860854859595938480}
   - component: {fileID: 6625989839585545263}
   m_Layer: 0
-  m_Name: StandartTurret
+  m_Name: SugarTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 2083741281113657665}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 2, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8855467480776133915}
   m_Father: {fileID: 0}
@@ -46,8 +46,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 2}
-  m_Center: {x: 0.24, y: 0.9, z: 0}
+  m_Size: {x: 4.505333, y: 5.4072495, z: 2}
+  m_Center: {x: -0.068364546, y: -0.803626, z: -1.1484629e-14}
 --- !u!114 &5431862145573323816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shootingRange: 999
-  _fireRate: 0.7
+  _fireRate: 1
   _bulletPrefab: {fileID: 5491224473595799099, guid: bce0d130f71d4e44e92b6b16bcf9d426,
     type: 3}
   _firePoint: {fileID: 8855467480776133915}
@@ -104,7 +104,7 @@ SpriteMask:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 83ed31cc740cb3a4f8af1bfa53fb4fae, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 80516a62cacf90d4db7712806d589676, type: 3}
   m_MaskAlphaCutoff: 0
   m_FrontSortingLayerID: 0
   m_BackSortingLayerID: 0
@@ -153,7 +153,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 83ed31cc740cb3a4f8af1bfa53fb4fae, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 80516a62cacf90d4db7712806d589676, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
