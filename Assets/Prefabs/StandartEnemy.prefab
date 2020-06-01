@@ -194,7 +194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _listOfWaypointObjects: {fileID: 0}
-  _startSpeed: 2.5
+  _startSpeed: 5.5
   _startHealth: 100
   _worth: 50
   _healthBar: {fileID: 6861726404493303717}

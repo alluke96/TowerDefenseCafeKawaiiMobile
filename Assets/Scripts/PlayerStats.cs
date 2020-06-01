@@ -14,7 +14,7 @@ public class PlayerStats : MonoBehaviour
     // Non-serialized fields
     //----------------------------------------------------------------------------------------------------------------
     public static int Money;
-    public static int Lives = 5;
+    public static int Lives;
     public static int Rounds;
     
     //----------------------------------------------------------------------------------------------------------------
@@ -23,6 +23,7 @@ public class PlayerStats : MonoBehaviour
     private void Start()
     {
         Money = _startMoney;
+        Lives = 5;
         Rounds = 0;
     }
 }

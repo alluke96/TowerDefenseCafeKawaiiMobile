@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 647311089476307613}
   - component: {fileID: 6531219680128007699}
-  - component: {fileID: 5431862145573323816}
   - component: {fileID: 5860854859595938480}
   - component: {fileID: 6625989839585545263}
+  - component: {fileID: -6340441372538528680}
   m_Layer: 0
   m_Name: SugarTurret
   m_TagString: Untagged
@@ -48,23 +48,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.505333, y: 5.4072495, z: 2}
   m_Center: {x: -0.068364546, y: -0.803626, z: -1.1484629e-14}
---- !u!114 &5431862145573323816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2083741281113657665}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67c1e2d51d00b134585e4fcb034569a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _shootingRange: 999
-  _fireRate: 1
-  _bulletPrefab: {fileID: 5491224473595799099, guid: bce0d130f71d4e44e92b6b16bcf9d426,
-    type: 3}
-  _firePoint: {fileID: 8855467480776133915}
 --- !u!331 &5860854859595938480
 SpriteMask:
   m_ObjectHideFlags: 0
@@ -164,6 +147,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!114 &-6340441372538528680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083741281113657665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dc3888cdf0db5540854c8eb13be8da0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sugar: {fileID: 5402961344496771131, guid: a8bb3d490795719469cd3ca74e1c0366, type: 3}
 --- !u!1 &3042839468808298418
 GameObject:
   m_ObjectHideFlags: 0

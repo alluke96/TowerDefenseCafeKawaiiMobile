@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     {
         // fix static issue when changing scenes
         GameIsOver = false;
+        Time.timeScale = 1;
     }
 
     //----------------------------------------------------------------------------------------------------------------

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class EnemyController : MonoBehaviour
@@ -25,7 +26,8 @@ public class EnemyController : MonoBehaviour
     private Transform _target;
     private int _wavePointIndex = 0;
     private CreateWaypointsList _waypointList;
-    
+    private Transform _nextTarget;
+
     //----------------------------------------------------------------------------------------------------------------
     // Unity events
     //----------------------------------------------------------------------------------------------------------------
@@ -35,17 +37,30 @@ public class EnemyController : MonoBehaviour
         _speed = _startSpeed;
         _waypointList = _listOfWaypointObjects.GetComponent<CreateWaypointsList>();
         _target = _waypointList.listOfWaypointObjects[0];
+        _nextTarget = _waypointList.listOfWaypointObjects[1];
     }
     private void Update()
     {
-        Vector3 direction = _target.position - transform.position;
-        transform.Translate(direction.normalized * (_speed * Time.deltaTime), Space.World); 
-        // normalized to use only the "speed" to control the speed.
-        
-        if (Vector3.Distance(transform.position, _target.position) <= 0.4f)
-        {
-            GetNextWaypoint();
-        }
+                Vector3 direction = _target.position - transform.position;
+                transform.Translate(direction.normalized * (_speed * Time.deltaTime), Space.World);
+                // normalized to use only the "speed" to control the speed.
+
+                if (Vector3.Distance(transform.position, _target.position) <= 0.4f)
+                {
+                    try
+                    {
+                        if (_nextTarget.GetComponent<NodeInterations>().turret != null)
+                        {
+                            return;
+                        }
+
+                        GetNextWaypoint();
+                    }
+                    catch (Exception e)
+                    {
+                        GetNextWaypoint();
+                    }
+                }
     }
 
     //----------------------------------------------------------------------------------------------------------------
@@ -60,7 +75,9 @@ public class EnemyController : MonoBehaviour
             Destroy(gameObject);
         }
         _wavePointIndex++;
-        _target = _waypointList.listOfWaypointObjects[_wavePointIndex];
+        _nextTarget = _waypointList.listOfWaypointObjects[_wavePointIndex+1];
+       
+        _target =  _waypointList.listOfWaypointObjects[_wavePointIndex];
     }
 
     private void Die()

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class WaveSpawner : MonoBehaviour
     [Header("Dependencies")] 
     [SerializeField] private Transform[] _enemyPrefab;
     [SerializeField] private Transform[] _spawnPoint;
+    [SerializeField] private Text _waveCountdownText;
 
     //----------------------------------------------------------------------------------------------------------------
     // Non-serialized fields
@@ -30,6 +32,9 @@ public class WaveSpawner : MonoBehaviour
         }
 
         _countdown -= Time.deltaTime;
+        _countdown = Mathf.Clamp(_countdown,0f, Mathf.Infinity);
+
+        _waveCountdownText.text = Mathf.Round(_countdown).ToString();
     }
 
     //----------------------------------------------------------------------------------------------------------------
@@ -57,7 +62,7 @@ public class WaveSpawner : MonoBehaviour
         int randomRow = Random.Range(0, _spawnPoint.Length);
         int randomEnemy = Random.Range(0, _enemyPrefab.Length);
         Transform enemy = Instantiate(_enemyPrefab[randomEnemy], _spawnPoint[randomRow].position, Quaternion.Euler(90,0,0), _spawnPoint[randomRow].parent.parent);
-        Transform waypointsList = _spawnPoint[randomRow].transform.parent.gameObject.transform.parent.gameObject.transform.Find("WaypointsList");
+        Transform waypointsList = _spawnPoint[randomRow].transform.parent.gameObject.transform.parent.transform;
         EnemyController enemyController = enemy.GetComponent<EnemyController>();
         enemyController.ListOfWaypointObjects = waypointsList.gameObject;
     }

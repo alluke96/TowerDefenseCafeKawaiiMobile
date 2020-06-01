@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
 {
@@ -9,8 +8,6 @@ public class Shop : MonoBehaviour
    [SerializeField] private TurretBlueprint _standartTurret;
    [SerializeField] private TurretBlueprint _bombTurret;   
    [SerializeField] private TurretBlueprint _sugarTurret;
-
-   [SerializeField] private Text _sugarText;
    
    //----------------------------------------------------------------------------------------------------------------
    // Non-serialized fields
@@ -23,11 +20,6 @@ public class Shop : MonoBehaviour
    private void Start()
    {
       _buildManager = BuildManager.instance;
-   }
-
-   private void Update()
-   {
-      _sugarText.text = "" + PlayerStats.Money;
    }
 
    //----------------------------------------------------------------------------------------------------------------
